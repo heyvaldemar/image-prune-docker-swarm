@@ -1,0 +1,40 @@
+# Remove All Images Without at Least One Container in a Docker Swarm
+
+# Vladimir Mikhalev
+# callvaldemar@gmail.com
+# www.heyvaldemar.com
+
+# Deploy Image-Prune in a Docker Swarm using the command:
+# docker stack deploy -c image-prune-docker-swarm.yml image-prune
+
+version: '3.8'
+
+x-default-opts:
+  &default-opts
+  logging:
+    options:
+      max-size: "1m"
+
+services:
+  image-prune:
+    <<: *default-opts
+    image: docker
+    command: sh -c "while true; do docker image prune -af; sleep 24h; done"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - bridge
+    deploy:
+      mode: global
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 128M
+        reservations:
+          cpus: '0.15'
+          memory: 64M
+
+networks:
+  bridge:
+    external: true
+    name: bridge
