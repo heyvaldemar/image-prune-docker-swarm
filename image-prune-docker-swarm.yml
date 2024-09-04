@@ -32,7 +32,7 @@
 # Support on Ko-fi: https://ko-fi.com/heyValdemar
 # Support on PayPal: https://www.paypal.com/paypalme/heyValdemarCOM
 
-version: '3.8'
+version: '3.9'
 
 x-default-opts:
   &default-opts
