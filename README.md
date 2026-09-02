@@ -1,3 +1,5 @@
+> **Archived.** I run everything on Docker Compose now and maintain the `*-docker-compose` templates instead: [browse them](https://github.com/heyvaldemar?tab=repositories&q=docker-compose). This repository stays up for reference but receives no updates.
+
 # Remove All Images Without at Least One Container in a Docker Swarm
 
 Install Docker Swarm by following my [guide](https://www.heyvaldemar.com/install-docker-swarm-on-ubuntu-server/).
